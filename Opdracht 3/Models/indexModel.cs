@@ -4,7 +4,7 @@ public class indexModel
 {
     public List<object> ShapeList = new List<object>();
     public indexModel() {
-        ShapeList.Add(new SquareShape(60, 80 , System.Drawing.Color.AliceBlue));
+        ShapeList.Add(new SquareShape(60, 80 , System.Drawing.Color.SandyBrown));
         ShapeList.Add(new SquareShape(55, 120 , System.Drawing.Color.Green));
         ShapeList.Add(new SquareShape(35, 35 , System.Drawing.Color.Chocolate));
         ShapeList.Add(new CircleShape(75, 75, System.Drawing.Color.Goldenrod));
