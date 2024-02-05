@@ -1,0 +1,35 @@
+﻿@model indexModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@{
+    foreach (var shape in Model.ShapeList) {
+        if (shape is SquareShape) {
+            var tmpShape = shape as SquareShape;
+            <svg width="@tmpShape.width" height="@tmpShape.height" xmlns="http://www.w3.org/2000/svg">
+                <rect width="@(tmpShape.width * 0.95)" height="@(tmpShape.height * 0.95)" style="fill:rgb(@tmpShape.color.R,@tmpShape.color.G,@tmpShape.color.B);" />
+            </svg>
+        }
+        else if (shape is CircleShape) {
+            var tmpShape = shape as CircleShape;
+
+            <svg width="@tmpShape.width" height="@tmpShape.height" xmlns="http://www.w3.org/2000/svg">
+                <ellipse rx="@(tmpShape.width*0.5*0.95)" ry="@(tmpShape.height*0.5*0.95)" cx="@(tmpShape.width*0.5)" cy="@(tmpShape.height*0.5)"
+                style="fill:rgb(@tmpShape.color.R,@tmpShape.color.G,@tmpShape.color.B);" />
+            </svg>
+        }
+        else if (shape is TriangleShape) {
+            var tmpShape = shape as TriangleShape;
+
+            <svg width="@tmpShape.width" height="@tmpShape.height" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="@(tmpShape.width/2),@(tmpShape.height - tmpShape.height * 0.95)
+                                 @(tmpShape.width - tmpShape.width * 0.95), @(tmpShape.height * 0.95)
+                                 @(tmpShape.width * 0.95), @(tmpShape.height * 0.95)"
+                style="fill:rgb(@tmpShape.color.R,@tmpShape.color.G,@tmpShape.color.B);" />
+            </svg>
+        }
+    }
+}
+
