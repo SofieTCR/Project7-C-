@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Opdracht 1", "Opdracht 1\Opdracht 1.csproj", "{C18EFD24-9E28-4C2A-BF78-8264668AD7BF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Opdracht 2", "Opdracht 2\Opdracht 2.csproj", "{54D43D3A-55D4-4539-ADFC-865507B4D729}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Opdracht 3", "Opdracht 3\Opdracht 3.csproj", "{50C9873F-DB6D-4148-8B7D-EA67896A5EC4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C18EFD24-9E28-4C2A-BF78-8264668AD7BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C18EFD24-9E28-4C2A-BF78-8264668AD7BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C18EFD24-9E28-4C2A-BF78-8264668AD7BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C18EFD24-9E28-4C2A-BF78-8264668AD7BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54D43D3A-55D4-4539-ADFC-865507B4D729}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54D43D3A-55D4-4539-ADFC-865507B4D729}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54D43D3A-55D4-4539-ADFC-865507B4D729}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54D43D3A-55D4-4539-ADFC-865507B4D729}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50C9873F-DB6D-4148-8B7D-EA67896A5EC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50C9873F-DB6D-4148-8B7D-EA67896A5EC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50C9873F-DB6D-4148-8B7D-EA67896A5EC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50C9873F-DB6D-4148-8B7D-EA67896A5EC4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {380555FD-6DC8-44FC-AB73-5834A369A8D6}
+	EndGlobalSection
+EndGlobal
