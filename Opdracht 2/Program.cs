@@ -1,8 +1,9 @@
 ﻿using System.Linq;
 
 namespace Opdracht1 {
-    class House {
-        public List<Room> rooms = new List<Room>();
+    class House
+    {
+        private List<Room> rooms = new List<Room>();
         public int totalVolume => rooms.Sum(r => r.volume);
 
         // Constructor
@@ -12,6 +13,10 @@ namespace Opdracht1 {
 
         public void addRoom(Room pRoom) {
             rooms.Add(pRoom);
+        }
+
+        public List<Room> getRooms() {
+            return rooms;
         }
 
         public string getPrice() {
@@ -26,10 +31,11 @@ namespace Opdracht1 {
         }
     }
 
-    class Room {
-        public float length { get; }
-        public float height { get; }
-        public float width { get; }
+    class Room
+    {
+        public float length { get; private set; }
+        public float height { get; private set; }
+        public float width { get; private set; }
 
         public int volume => Convert.ToInt32(length * height * width);
 
