@@ -5,3 +5,16 @@
 }
 
 <h1>Opdracht_4</h1>
+<table border="1px solid black" width="500px">
+    <tr>
+        <th>Catagory</th>
+        <th>Naam product</th>
+        <th>Verkoopprijs</th>
+        <th>Info</th>
+    </tr>
+    @{
+        foreach(var product in @Model.myProducts.products) {
+            @Html.Raw(product.printInfo());
+        }
+    }
+</table>
