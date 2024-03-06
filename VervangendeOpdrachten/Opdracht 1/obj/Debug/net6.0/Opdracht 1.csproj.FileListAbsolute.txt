@@ -1,0 +1,17 @@
+C:\Users\Sofie\OneDrive - Zadkine\Documenten\VSC Files\C# Projects\Project7-C-\VervangendeOpdrachten\Opdracht 1\obj\Debug\net6.0\Opdracht 1.csproj.AssemblyReference.cache
+C:\Users\Sofie\OneDrive - Zadkine\Documenten\VSC Files\C# Projects\Project7-C-\VervangendeOpdrachten\Opdracht 1\obj\Debug\net6.0\Opdracht 1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sofie\OneDrive - Zadkine\Documenten\VSC Files\C# Projects\Project7-C-\VervangendeOpdrachten\Opdracht 1\obj\Debug\net6.0\Opdracht 1.AssemblyInfoInputs.cache
+C:\Users\Sofie\OneDrive - Zadkine\Documenten\VSC Files\C# Projects\Project7-C-\VervangendeOpdrachten\Opdracht 1\obj\Debug\net6.0\Opdracht 1.AssemblyInfo.cs
+C:\Users\Sofie\OneDrive - Zadkine\Documenten\VSC Files\C# Projects\Project7-C-\VervangendeOpdrachten\Opdracht 1\obj\Debug\net6.0\Opdracht 1.csproj.CoreCompileInputs.cache
+C:\Users\Sofie\OneDrive - Zadkine\Documenten\VSC Files\C# Projects\Project7-C-\VervangendeOpdrachten\Opdracht 1\bin\Debug\net6.0\Opdracht 1.exe
+C:\Users\Sofie\OneDrive - Zadkine\Documenten\VSC Files\C# Projects\Project7-C-\VervangendeOpdrachten\Opdracht 1\bin\Debug\net6.0\Opdracht 1.deps.json
+C:\Users\Sofie\OneDrive - Zadkine\Documenten\VSC Files\C# Projects\Project7-C-\VervangendeOpdrachten\Opdracht 1\bin\Debug\net6.0\Opdracht 1.runtimeconfig.json
+C:\Users\Sofie\OneDrive - Zadkine\Documenten\VSC Files\C# Projects\Project7-C-\VervangendeOpdrachten\Opdracht 1\bin\Debug\net6.0\Opdracht 1.dll
+C:\Users\Sofie\OneDrive - Zadkine\Documenten\VSC Files\C# Projects\Project7-C-\VervangendeOpdrachten\Opdracht 1\bin\Debug\net6.0\Opdracht 1.pdb
+C:\Users\Sofie\OneDrive - Zadkine\Documenten\VSC Files\C# Projects\Project7-C-\VervangendeOpdrachten\Opdracht 1\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\Sofie\OneDrive - Zadkine\Documenten\VSC Files\C# Projects\Project7-C-\VervangendeOpdrachten\Opdracht 1\obj\Debug\net6.0\Opdracht 1.csproj.CopyComplete
+C:\Users\Sofie\OneDrive - Zadkine\Documenten\VSC Files\C# Projects\Project7-C-\VervangendeOpdrachten\Opdracht 1\obj\Debug\net6.0\Opdracht 1.dll
+C:\Users\Sofie\OneDrive - Zadkine\Documenten\VSC Files\C# Projects\Project7-C-\VervangendeOpdrachten\Opdracht 1\obj\Debug\net6.0\refint\Opdracht 1.dll
+C:\Users\Sofie\OneDrive - Zadkine\Documenten\VSC Files\C# Projects\Project7-C-\VervangendeOpdrachten\Opdracht 1\obj\Debug\net6.0\Opdracht 1.pdb
+C:\Users\Sofie\OneDrive - Zadkine\Documenten\VSC Files\C# Projects\Project7-C-\VervangendeOpdrachten\Opdracht 1\obj\Debug\net6.0\Opdracht 1.genruntimeconfig.cache
+C:\Users\Sofie\OneDrive - Zadkine\Documenten\VSC Files\C# Projects\Project7-C-\VervangendeOpdrachten\Opdracht 1\obj\Debug\net6.0\ref\Opdracht 1.dll

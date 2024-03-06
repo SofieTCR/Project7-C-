@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "AECtYtSPKnRuO2xuUK8Mljf0pz6mrYBYuVpYNnWVBrVX5u5gZ5LLBYdtP44v4DZRjNStv/ehvVgocqtqKDCk1Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Sofie\\OneDrive - Zadkine\\Documenten\\VSC Files\\C# Projects\\Project7-C-\\VervangendeOpdrachten\\Opdracht 1\\Opdracht 1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Sofie\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
