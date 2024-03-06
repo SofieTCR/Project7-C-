@@ -1,153 +1,209 @@
 ﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Opdracht1
 {
     public class Task
     {
-        public bool isComplete { get; set; } = false;
+        // Properties for task attributes
+        public bool IsComplete { get; set; } = false;
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public int Identifier { get; private set; }
 
-        public string title { get; set; }
-
-        public string description { get; set; }
-
-        public int identifier { get; private set; }
-
-        public Task (int pIdentifier, string pTitle, string pDescription)
+        // Constructor to initialize task
+        public Task(int identifier, string title, string description)
         {
-            identifier = pIdentifier;
-            title = pTitle;
-            description = pDescription;
+            Identifier = identifier;
+            Title = title;
+            Description = description;
         }
     }
 
-
-    class Program {
+    class Program
+    {
+        // List of tasks
         public List<Task> TaskList { get; private set; }
-
-        public List<string> VML { get; private set;} = new List<string>();
-
+        // Validation messages list
+        public List<string> ValidationMessages { get; private set; } = new List<string>();
+        // Flag to control program flow
         private bool isActive = true;
+
         static void Main(string[] args)
         {
             var program = new Program();
             program.GetTasks();
 
-            while (program.isActive) {
+            while (program.isActive)
+            {
                 Console.Clear();
                 program.DisplayCurrentState();
                 program.AwaitUserInput();
             }
-            if (program.VML.Count != 0) {
-                foreach (string vm in program.VML) {
-                    Console.WriteLine(vm);
+
+            // Display validation messages, if any
+            if (program.ValidationMessages.Count != 0)
+            {
+                foreach (string message in program.ValidationMessages)
+                {
+                    Console.WriteLine(message);
                 }
             }
         }
 
-        public void DisplayCurrentState() {
+        // Display current tasks
+        public void DisplayCurrentState()
+        {
             Console.WriteLine("Current Tasks:");
             Console.WriteLine("   Id | Done | Title           | Description");
-            foreach (Task task in TaskList) {
-                Console.WriteLine($"   {task.identifier.ToString().PadRight(2).Substring(0, 2)}"
-                                 +$" |  [{(task.isComplete ? "X" : " ")}]" 
-                                 +$" | {task.title.PadRight(15).Substring(0, 15)}"
-                                 +$" | {task.description.PadRight(35).Substring(0,35)}");
+            foreach (Task task in TaskList)
+            {
+                Console.WriteLine($"   {task.Identifier.ToString().PadRight(2).Substring(0, 2)}"
+                                 + $" |  [{(task.IsComplete ? "X" : " ")}]"
+                                 + $" | {task.Title.PadRight(15).Substring(0, 15)}"
+                                 + $" | {task.Description.PadRight(35).Substring(0, 35)}");
             }
         }
 
-        public void AwaitUserInput() {
+        // Wait for user input
+        public void AwaitUserInput()
+        {
             Console.WriteLine("Please press a number to proceed:");
             Console.WriteLine("[0] View a task");
             Console.WriteLine("[1] Add a task");
-            Console.WriteLine("[2] Clear the tasklist");
+            Console.WriteLine("[2] Clear the task list");
             Console.WriteLine("[3] Exit the application");
+
+            // Continue awaiting user input until valid input is received
             var awaiting = true;
-            while (awaiting) {
+            while (awaiting)
+            {
                 var pressedKey = Console.ReadKey(true).KeyChar.ToString();
-                switch (pressedKey) {
-                    case "0" :
+                switch (pressedKey)
+                {
+                    case "0":
                         ViewTask();
                         awaiting = false;
                         break;
-                    case "1" :
+                    case "1":
                         AddTask();
                         awaiting = false;
                         break;
-                    case "2" :
-                        TaskList = new List<Task>();
+                    case "2":
+                        if (RequestConfirmation()) TaskList.Clear();
                         awaiting = false;
                         break;
-                    case "3" :
+                    case "3":
                         SetTasks();
                         isActive = false;
                         awaiting = false;
                         break;
-                    default : 
+                    default:
                         Console.WriteLine($"Unknown Character {pressedKey} received, please try again!");
                         break;
                 }
             }
         }
+
+        // Add a task
         public void AddTask()
         {
-            Console.WriteLine("Please enter the title for your task");
+            Console.WriteLine("Please enter the title for your task:");
             var title = Console.ReadLine();
-            Console.WriteLine("Please enter the description for your task");
+            Console.WriteLine("Please enter the description for your task:");
             var description = Console.ReadLine();
-            TaskList.Add(new Task(pIdentifier: TaskList.Select(t => t.identifier).DefaultIfEmpty(0).Max() + 1
-                                , pTitle: title
-                                , pDescription: description));
+            TaskList.Add(new Task(identifier: TaskList.Select(t => t.Identifier).DefaultIfEmpty(0).Max() + 1,
+                                  title: title,
+                                  description: description));
         }
 
-        public void ViewTask() {
-            Console.WriteLine("Please enter the Id of the task you'd like to view");
+        // View a specific task
+        public void ViewTask()
+        {
+            Console.WriteLine("Please enter the Id of the task you'd like to view:");
             var hasTask = false;
-            while (!hasTask && TaskList.Count != 0) {
-                var Id = Convert.ToInt32(Console.ReadLine());
-                var matchingTask = TaskList.FirstOrDefault(t => t.identifier == Id);
-                if (matchingTask != null) {
+            while (!hasTask && TaskList.Count != 0)
+            {
+                var id = Convert.ToInt32(Console.ReadLine());
+                var matchingTask = TaskList.FirstOrDefault(t => t.Identifier == id);
+                if (matchingTask != null)
+                {
                     hasTask = true;
-                    DisplayTask(pTaskId: Id);
+                    DisplayTask(pTaskId: id);
                 }
-                else {
-                    Console.WriteLine($"Invalid Id {Id} received, please try again");
+                else
+                {
+                    Console.WriteLine($"Invalid Id {id} received, please try again");
                 }
             }
         }
 
+        // Display details of a specific task
         public void DisplayTask(int pTaskId)
         {
             Console.Clear();
-            Console.WriteLine($"Title: {TaskList.FirstOrDefault(t => t.identifier == pTaskId).title} | {(TaskList.FirstOrDefault(t => t.identifier == pTaskId).isComplete ? "Complete" : "Incomplete")}");
+            var task = TaskList.FirstOrDefault(t => t.Identifier == pTaskId);
+            Console.WriteLine($"Title: {task.Title} | {(task.IsComplete ? "Complete" : "Incomplete")}");
             Console.WriteLine();
-            Console.WriteLine($"Description: {TaskList.FirstOrDefault(t => t.identifier == pTaskId).description}");
+            Console.WriteLine($"Description: {task.Description}");
             Console.WriteLine();
             Console.WriteLine("Please press a number to proceed:");
-            Console.WriteLine($"[0] Mark the task as {(TaskList.FirstOrDefault(t => t.identifier == pTaskId).isComplete ? "Incomplete" : "Complete")}");
+            Console.WriteLine($"[0] Mark the task as {(task.IsComplete ? "Incomplete" : "Complete")}");
             Console.WriteLine("[1] Remove the task");
             Console.WriteLine("[2] Return to the menu");
+
+            // Continue awaiting user input until valid input is received
             var awaiting = true;
-            while (awaiting) {
+            while (awaiting)
+            {
                 var pressedKey = Console.ReadKey(true).KeyChar.ToString();
-                switch (pressedKey) {
-                    case "0" :
-                        TaskList.FirstOrDefault(t => t.identifier == pTaskId).isComplete = !TaskList.FirstOrDefault(t => t.identifier == pTaskId).isComplete;
+                switch (pressedKey)
+                {
+                    case "0":
+                        task.IsComplete = !task.IsComplete;
                         awaiting = false;
                         break;
-                    case "1" :
-                        TaskList.Remove(TaskList.FirstOrDefault(t => t.identifier == pTaskId));
+                    case "1":
+                        if (RequestConfirmation()) TaskList.Remove(task);
                         awaiting = false;
                         break;
-                    case "2" :
+                    case "2":
                         awaiting = false;
                         break;
-                    default : 
+                    default:
                         Console.WriteLine($"Unknown Character {pressedKey} received, please try again!");
                         break;
                 }
             }
         }
+
+        // Make the user confirm their action.
+        public bool RequestConfirmation()
+        {
+            Console.WriteLine("Are you sure you want to proceed with this action? Y/N");
+            // Continue awaiting user input until valid input is received
+            var awaiting = true;
+            while (awaiting)
+            {
+                var pressedKey = Console.ReadKey(true).KeyChar.ToString().ToLower();
+                switch (pressedKey)
+                {
+                    case "y":
+                        return true;
+                    case "n":
+                        return false;
+                    default:
+                        Console.WriteLine($"Unknown Character {pressedKey} received, please try again!");
+                        break;
+                }
+            }
+            return false;
+        }
+
+        // Retrieve tasks from file
         public void GetTasks(bool reset = false)
         {
             if (reset || !File.Exists("data.json"))
@@ -155,27 +211,27 @@ namespace Opdracht1
                 TaskList = new List<Task>();
                 return;
             }
+
             try
             {
                 TaskList = JsonConvert.DeserializeObject<List<Task>>(File.ReadAllText("data.json"));
-                return;
             }
             catch
             {
-                VML.Add("JSON Data file exists but the contents are not valid.");
+                ValidationMessages.Add("JSON Data file exists but the contents are not valid.");
             }
         }
 
+        // Save tasks to file
         public void SetTasks()
         {
-            if (TaskList != null)
             try
             {
                 File.WriteAllText("data.json", JsonConvert.SerializeObject(TaskList));
             }
             catch
             {
-                VML.Add("Data failed to serialise to JSON or JSON failed to write to file.");
+                ValidationMessages.Add("Data failed to serialize to JSON or JSON failed to write to file.");
             }
         }
     }
