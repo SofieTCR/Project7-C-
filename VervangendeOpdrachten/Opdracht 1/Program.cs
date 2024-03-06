@@ -103,19 +103,50 @@ namespace Opdracht1
         public void ViewTask() {
             Console.WriteLine("Please enter the Id of the task you'd like to view");
             var hasTask = false;
-            Task task;
-            while (!hasTask) {
+            while (!hasTask && TaskList.Count != 0) {
                 var Id = Convert.ToInt32(Console.ReadLine());
                 var matchingTask = TaskList.FirstOrDefault(t => t.identifier == Id);
                 if (matchingTask != null) {
                     hasTask = true;
-                    task = matchingTask;
+                    DisplayTask(pTaskId: Id);
                 }
                 else {
                     Console.WriteLine($"Invalid Id {Id} received, please try again");
                 }
             }
+        }
 
+        public void DisplayTask(int pTaskId)
+        {
+            Console.Clear();
+            Console.WriteLine($"Title: {TaskList.FirstOrDefault(t => t.identifier == pTaskId).title} | {(TaskList.FirstOrDefault(t => t.identifier == pTaskId).isComplete ? "Complete" : "Incomplete")}");
+            Console.WriteLine();
+            Console.WriteLine($"Description: {TaskList.FirstOrDefault(t => t.identifier == pTaskId).description}");
+            Console.WriteLine();
+            Console.WriteLine("Please press a number to proceed:");
+            Console.WriteLine($"[0] Mark the task as {(TaskList.FirstOrDefault(t => t.identifier == pTaskId).isComplete ? "Incomplete" : "Complete")}");
+            Console.WriteLine("[1] Remove the task");
+            Console.WriteLine("[2] Return to the menu");
+            var awaiting = true;
+            while (awaiting) {
+                var pressedKey = Console.ReadKey(true).KeyChar.ToString();
+                switch (pressedKey) {
+                    case "0" :
+                        TaskList.FirstOrDefault(t => t.identifier == pTaskId).isComplete = !TaskList.FirstOrDefault(t => t.identifier == pTaskId).isComplete;
+                        awaiting = false;
+                        break;
+                    case "1" :
+                        TaskList.Remove(TaskList.FirstOrDefault(t => t.identifier == pTaskId));
+                        awaiting = false;
+                        break;
+                    case "2" :
+                        awaiting = false;
+                        break;
+                    default : 
+                        Console.WriteLine($"Unknown Character {pressedKey} received, please try again!");
+                        break;
+                }
+            }
         }
         public void GetTasks(bool reset = false)
         {
