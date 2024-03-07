@@ -18,5 +18,10 @@ namespace Hospital
         public Patient(string pName) : base(pName)
         {
         }
+
+        public void AddAppointment(Appointment pAppointment)
+        {
+            Appointments.Add(pAppointment);
+        }
     }
 }

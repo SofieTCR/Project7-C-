@@ -24,7 +24,7 @@ namespace Hospital
 
         public void Save()
         {
-            refPatient.Appointments.Add(this);
+            refPatient.AddAppointment(this);
         }
 
         public float GetCost()
