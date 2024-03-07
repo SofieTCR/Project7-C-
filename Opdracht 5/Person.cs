@@ -14,7 +14,7 @@ namespace Hospital
     {
         public float Payment => Appointments.Select(a => a.GetCost()).Sum();
 
-        public List<Appointment> Appointments = new List<Appointment>();
+        public static List<Appointment> Appointments = new List<Appointment>();
         public Patient(string pName) : base(pName)
         {
         }
